@@ -39,4 +39,9 @@ export class UserService {
   deleteUserById(id: number): Promise<DeleteResult> {
     return this.userRepository.delete(id);
   }
+
+  // 根据用户名查询用户信息
+  findUserByUsername(username: string): Promise<User> {
+    return this.userRepository.findOneBy({ username });
+  }
 }
