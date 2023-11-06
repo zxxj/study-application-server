@@ -1,9 +1,11 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
+import { Public } from './public.decorator';
 
 @Controller('auth')
 export class AuthController {
-  @Get(':id')
-  getAuthById(@Param('id', ParseIntPipe) id: number): string {
-    return 'auth id:' + id;
+  @Post()
+  @Public()
+  login(): string {
+    return 'auth';
   }
 }
