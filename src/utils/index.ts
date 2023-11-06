@@ -11,3 +11,18 @@ export const getUsernameAndPassword = () => {
   const password = fs.readFileSync(passwordPath).toString();
   return { username, password };
 };
+
+export const success = (message, data) => {
+  return {
+    code: 1,
+    message,
+    data,
+  };
+};
+
+export const error = (message) => {
+  return {
+    code: -1,
+    message,
+  };
+};

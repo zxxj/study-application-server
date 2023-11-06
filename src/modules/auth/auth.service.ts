@@ -1,10 +1,14 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserService } from '../user/user.service';
+import { JwtService } from '@nestjs/jwt';
 import * as md5 from 'md5';
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly jwtService: JwtService,
+  ) {}
 
   async login(username: string, password: string) {
     const user = await this.userService.findUserByUsername(username);
@@ -15,7 +19,10 @@ export class AuthService {
     if (md5Password !== user.password) {
       throw new UnauthorizedException();
     }
+    const payload = { username: user.username, userid: user.id };
 
-    return 'auth';
+    return {
+      token: await this.jwtService.signAsync(payload),
+    };
   }
 }
