@@ -14,9 +14,9 @@ export const getUsernameAndPassword = () => {
 
 export const success = (message, data) => {
   return {
-    code: 1,
+    code: 0,
     message,
-    data,
+    result: data,
   };
 };
 
