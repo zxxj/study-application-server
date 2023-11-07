@@ -1,7 +1,7 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { Public } from './public.decorator';
 import { AuthService } from './auth.service';
-import { success, error } from 'src/utils';
+import { wrapperResponse } from 'src/utils';
 
 @Controller('auth')
 export class AuthController {
@@ -10,9 +10,9 @@ export class AuthController {
   @Post('login')
   @Public()
   async login(@Body() params) {
-    return await this.authService
-      .login(params.username, params.password)
-      .then((res) => success('登陆成功', res))
-      .catch((err) => error(err.message));
+    return wrapperResponse(
+      '登陆成功',
+      this.authService.login(params.username, params.password),
+    );
   }
 }

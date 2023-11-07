@@ -6,8 +6,10 @@ import {
   Param,
   ParseIntPipe,
   Post,
+  Req,
 } from '@nestjs/common';
 import { UserService } from './user.service';
+import { wrapperResponse } from 'src/utils';
 
 @Controller('user')
 export class UserController {
@@ -33,7 +35,10 @@ export class UserController {
   }
 
   @Get('info')
-  getUserInfoByToken() {
-    return 'user info';
+  getUserInfoByToken(@Req() request) {
+    return wrapperResponse(
+      '获取用户信息成功',
+      this.userService.findUserByUsername(request.user.username),
+    );
   }
 }

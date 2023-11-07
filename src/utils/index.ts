@@ -26,3 +26,9 @@ export const error = (message) => {
     message,
   };
 };
+
+export const wrapperResponse = (message, promise) => {
+  return promise
+    .then((data) => success(message, data))
+    .catch((err) => error(err.message));
+};
