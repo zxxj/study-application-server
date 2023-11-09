@@ -6,6 +6,7 @@ import { AppService } from './app.service';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
 import { BookModule } from './modules/book/book.module';
+import { MenuModule } from './modules/menu/menu.module';
 
 const { username, password } = getUsernameAndPassword();
 
@@ -23,6 +24,7 @@ const { username, password } = getUsernameAndPassword();
     UserModule,
     AuthModule,
     BookModule,
+    MenuModule,
   ],
   controllers: [AppController],
   providers: [AppService],
