@@ -20,6 +20,7 @@ const { username, password } = getUsernameAndPassword();
       password,
       database: 'vben-book-dev',
       autoLoadEntities: true,
+      synchronize: true,
     }),
     UserModule,
     AuthModule,

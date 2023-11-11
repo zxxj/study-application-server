@@ -1,4 +1,5 @@
 export const MENU_LIST = `[
+
   {
       "path":"/:path(.*)*",
       "name":"PageNotFound",
@@ -19,28 +20,31 @@ export const MENU_LIST = `[
           }
       ]
   },
+
   {
-      "path":"/about",
-      "name":"About",
-      "redirect":"/about/index",
-      "meta":{
-          "hideChildrenInMenu":true,
-          "icon":"simple-icons:about-dot-me",
-          "title":"routes.dashboard.about",
-          "orderNo":100000
-      },
-      "children":[
-          {
-              "path":"index",
-              "name":"AboutPage",
-              "meta":{
-                  "title":"routes.dashboard.about",
-                  "icon":"simple-icons:about-dot-me",
-                  "hideMenu":true
-              }
-          }
-      ]
-  },
+    "path":"/about",
+    "name":"About",
+    "redirect":"/about/index",
+    "meta":{
+        "hideChildrenInMenu":true,
+        "icon":"simple-icons:about-dot-me",
+        "title":"routes.dashboard.about",
+        "orderNo":100000
+    },
+    "children":[
+        {
+            "path":"index",
+            "name":"AboutPage",
+            "meta":{
+                "title":"routes.dashboard.about",
+                "icon":"simple-icons:about-dot-me",
+                "hideMenu":true
+            }
+        }
+    ]
+},
+
+
   {
       "path":"/dashboard",
       "name":"Dashboard",
@@ -131,4 +135,24 @@ export const MENU_LIST = `[
               ]
           }
       ]
-  }]`;
+  },
+  {
+    "path":"/permission",
+    "name":"Permission",
+    "redirect":"/permission/menu",
+    "meta":{
+        "orderNo":15,
+        "icon":"ion:key-outline",
+        "title":"routes.demo.permission.permission",
+        "roles":"[\\"super\\", \\"test\\"]"
+    },
+    "children":[
+        {
+            "path":"menu",
+            "name":"PermissionMenu",
+            "meta":{
+                "title":"routes.demo.permission.menu"
+            }
+        }
+    ]
+}]`;
