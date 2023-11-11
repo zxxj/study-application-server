@@ -12,7 +12,6 @@ export class Menu {
   path: string;
 
   @Column()
-  @Unique(['string'])
   name: string;
 
   @Column()
@@ -25,6 +24,6 @@ export class Menu {
   pid: number;
 
   // 菜单是否可用? 1可用 0不可用
-  @Column()
+  @Column({ default: 1 })
   active: number;
 }
