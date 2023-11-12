@@ -10,4 +10,9 @@ export class MenuController {
   getAllMenu(): string {
     return wrapperResponse('获取菜单成功', this.menuService.findAllMenu());
   }
+
+  @Get('active')
+  findActiveMenu(): string {
+    return wrapperResponse('获取菜单成功', this.menuService.findActiveMenu());
+  }
 }
