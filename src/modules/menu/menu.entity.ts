@@ -14,6 +14,9 @@ export class Menu {
   @Column()
   name: string;
 
+  @Column({ default: '' })
+  redirect: string;
+
   @Column()
   meta: string;
 

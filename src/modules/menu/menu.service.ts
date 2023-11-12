@@ -21,7 +21,11 @@ export class MenuService {
   }
 
   create(body) {
-    console.log(body);
     return this.menuRespository.save(body);
+  }
+
+  update(body) {
+    console.log(body);
+    return this.menuRespository.update(body.id, body);
   }
 }
