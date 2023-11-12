@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { MenuService } from './menu.service';
 import { wrapperResponse } from 'src/utils';
 
@@ -14,5 +14,10 @@ export class MenuController {
   @Get('active')
   findActiveMenu(): string {
     return wrapperResponse('获取菜单成功', this.menuService.findActiveMenu());
+  }
+
+  @Post()
+  createMenu(@Body() body) {
+    return wrapperResponse('创建菜单成功', this.menuService.create(body));
   }
 }

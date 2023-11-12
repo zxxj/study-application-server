@@ -19,4 +19,9 @@ export class MenuService {
     const sql = 'select * from menu where active = 1 order by id asc';
     return this.menuRespository.query(sql);
   }
+
+  create(body) {
+    console.log(body);
+    return this.menuRespository.save(body);
+  }
 }
